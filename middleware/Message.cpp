@@ -23,6 +23,17 @@ public:
 
     }
 
+    QString ToString() // преобразует объект для отображения в сообщениях
+    {                 //формат: (дата)юзер> сообщение
+        return QString("(%1)%2> %3").arg(datetime, sender, message);
+    }
+
+    QString ToJSON() //возвращает строку в формате JSON
+    {
+        return QString("{\"sender\":\"%1\","
+                       "\"message\":\"%2\","
+                       "\"datetime\":\"%3\"}").arg(sender, message, datetime);
+    }
 };
 
 
